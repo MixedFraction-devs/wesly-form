@@ -327,9 +327,8 @@
               // Add click event listener to each option
               optionElement.addEventListener("click", function () {
                 const selectedValue = this.getAttribute("data-value");
-                document.querySelector(
-                  "#select-box2"
-                ).textContent = selectedValue;
+                document.querySelector("#select-box2").textContent =
+                  selectedValue;
                 console.log(selectedValue);
                 document.getElementById("carSelect2").style.display = "none";
               });
@@ -745,12 +744,20 @@
       }
       #section {
         width: 580px;
+        max-width: 100%;
         display: flex !important;
         flex-direction: column !important;
         background-color: black;
         padding: 30px;
         border-radius: 25px;
       }
+
+      @media (max-width: 600px) {
+        #section {
+          margin: auto;
+        }
+      }
+
       .tabs {
         display: flex;
         gap: 20px;
@@ -808,6 +815,7 @@
         color: #000;
         display: block !important;
         width: 100% !important;
+        min-width: 100% !important;
       }
 
       input[type="checkbox"]:checked {
@@ -890,7 +898,7 @@
         background: white;
         border: none;
         border-radius: 15px;
-        padding: 20px;
+        padding: 10px;
         margin-bottom: 20px;
       }
       .custom-select .select-box {
@@ -1226,7 +1234,15 @@
                                   </div>
                                 </div>
                               </div>
-                              <div class="wtbx_row_content clearfix">
+                              <div
+                                class="wtbx_row_content clearfix"
+                                style="
+                                  margin-top: 80px;
+                                  @media (max-width: 600px) {
+                                    margin-top: unset;
+                                  }
+                                "
+                              >
                                 <div class="wtbx_row_content_wrapper">
                                   <div class="wtbx_row_content_inner clearfix">
                                     <div
@@ -1313,7 +1329,15 @@
                                                   </div>
                                                 </div>
                                               </div>
-                                              <section id="section">
+                                              <section
+                                                id="section"
+                                                style="
+                                                  width: 480px;
+                                                  @media (max-width: 600px) {
+                                                    max-width: 100%;
+                                                  }
+                                                "
+                                              >
                                                 <div class="tabs">
                                                   <div
                                                     class="tab-label active-label"
@@ -1333,7 +1357,10 @@
                                                   id="form1"
                                                   class="tab active"
                                                 >
-                                                  <div class="form-group">
+                                                  <div
+                                                    class="form-group"
+                                                    style="width: 100%"
+                                                  >
                                                     <label for="from"
                                                       >Pick-up location
                                                       (Traveling from)</label
@@ -1626,6 +1653,10 @@
                                                     >
                                                       <div
                                                         class="wtbx_image_inner wtbx-element-reveal wtbx-reveal-cont"
+                                                        style="
+                                                          width: auto; 
+                                                          height: 600px;
+                                                        "
                                                       >
                                                         <div
                                                           class="wtbx_image_overlap wtbx_image_noaction"
